@@ -12,7 +12,7 @@ export default function Highlights() {
     <section className="p-3 lg:p-50">
       <div className="mx-auto max-w-screen-xl flex flex-col gap-10 w-full">
         <div className="px-5">
-          <h1 className="text-3xl text-[#14213D] lg:text-4xl font-bold">Featured Projects</h1>
+          <h1 className="text-2xl text-[#14213D] lg:text-4xl font-bold">Featured Projects</h1>
           <div className="mt-8 lg:mt-5">
             {RowCardData.map((card) => (
               <div key={card.title} className="mb-8 last:mb-0">
@@ -37,7 +37,7 @@ export default function Highlights() {
           </div>
         </div>
         <div className="px-5 mt-20">
-          <h1 className="text-3xl text-[#14213D] lg:text-4xl font-bold">About Me</h1>
+          <h1 className="text-2xl text-[#14213D] lg:text-4xl font-bold">About Me</h1>
           <div className="mt-8 lg:mt-5 grid grid-cols-1 lg:grid-cols-5 gap-8 items-start">
             {/* Image */}
             <div className="relative w-full lg:col-span-2 aspect-[3/4] rounded-xl overflow-hidden shadow-[0_10px_30px_rgba(0,0,0,0.12)]">
@@ -49,10 +49,10 @@ export default function Highlights() {
               />
             </div>
             {/* Details */}
-            <div className="lg:col-span-3 flex flex-col justify-center h-full">
+            <div className="lg:col-span-3 flex flex-col justify-center h-full text-sm md:text-base">
               <p>
                 I’m a Front-End Developer passionate about creating intuitive, visually polished, 
-                and accessible web experiences. With over four years of experience in web development, 
+                and accessible web applications. With over four years of experience in web development, 
                 I focus on building responsive interfaces that balance performance, usability, and 
                 thoughtful design, while working toward becoming a full-stack and security-focused developer.
               </p>
