@@ -3,8 +3,11 @@
 import Image from "next/image";
 import Link from "next/link";
 import Badges from "@/components/usable-components/Badge";
-import { Code, ShieldCheck, Brain } from "lucide-react";
+import { Code, ShieldCheck, Brain, LineChart, Sigma  } from "lucide-react";
 import { Github, Linkedin, Mail  } from 'lucide-react';
+import techStack from "@/lib/TechStack.json";
+import { iconMap } from "@/lib/iconMap";
+import { BadgeHoverProvider } from "@/components/usable-components/BadgeHoverContext";
 
 export default function About() {
   return (
@@ -21,6 +24,7 @@ export default function About() {
                 <Badges
                     label="Front-End"
                     icon={<Code className="w-3 h-3 sm:w-4 sm:h-4" />}
+                    color="blue"
                     className="text-xs sm:text-sm"
                 />
 
@@ -34,10 +38,13 @@ export default function About() {
                 <Badges
                     label="Machine Learning"
                     icon={<Brain className="w-3 h-3 sm:w-4 sm:h-4" />}
+                    color="blue"
                     className="text-xs sm:text-sm"
                 />
             </div>
         </div>
+
+        {/* Image and Details Section */}
         <div className="mt-30 grid grid-cols-1 lg:grid-cols-5 gap-8 px-3 lg:px-40">
             {/* Image */}
             <div className="relative w-full lg:col-span-2 aspect-[3/4] rounded-xl overflow-hidden shadow-[0_10px_30px_rgba(0,0,0,0.12)]">
@@ -69,7 +76,7 @@ export default function About() {
                 applications.
               </p>
               {/* Social Links */}
-              <div className="flex justify-center lg:justify-start mt-12 gap-4">
+              <div className="flex justify-center lg:justify-start mt-11 gap-4">
                 {/* GitHub */}
                 <Link
                     href="https://github.com/ivanjameslo"
@@ -109,17 +116,38 @@ export default function About() {
               </div>
             </div>
         </div>
+
+        {/* Tech Stack Section */}
         <div className="mt-15 w-full px-3 lg:px-40">
             <h1 className="text-2xl text-[#14213D] lg:text-3xl font-bold text-left">Tech Stack</h1>
-            <div className="mt-5">
-                <h2 className="text-xl">Development</h2>
+            <div className="grid grid-cols-1 lg:grid-cols-3 gap-10 mt-5">
+              {Object.entries(techStack).map(([category, items]) => (
+                <div key={category}>
+                  <h2 className="text-xl font-semibold mb-4">
+                    {category}
+                  </h2>
+
+                  <BadgeHoverProvider>
+                  <div className="flex flex-wrap gap-3">
+                    {items.map((item) => (
+                      <Badges
+                        key={item.name}
+                        label={item.name}
+                        icon={iconMap[item.icon]}
+                        variant="cycle"
+                        className="text-xs sm:text-sm"
+                      />
+                    ))}
+                  </div>
+                  </BadgeHoverProvider>
+                </div>
+              ))}
             </div>
-            <div className="mt-5">
-                <h2 className="text-xl">Cybersecurity</h2>
-            </div>
-            <div className="mt-5">
-                <h2 className="text-xl">Machine Learning</h2>
-            </div>
+        </div>
+
+        {/* Work Experience Section */}
+        <div className="mt-15 w-full px-3 lg:px-40">
+            <h1 className="text-2xl text-[#14213D] lg:text-3xl font-bold text-left">Work Experience</h1>
         </div>
     </div>
   );

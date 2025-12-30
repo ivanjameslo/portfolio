@@ -1,0 +1,31 @@
+{
+  "Development": [
+    { "name": "Next.js", "icon": "nextjs" },
+    { "name": "React", "icon": "react" },
+    { "name": "Git", "icon": "git" },
+    { "name": "TypeScript", "icon": "typescript" },
+    { "name": "JavaScript", "icon": "javascript" },
+    { "name": "Vanilla CSS", "icon": "css3" },
+    { "name": "Tailwind CSS", "icon": "tailwindcss" },
+    { "name": "Prisma", "icon": "prisma" },
+    { "name": "Node.js", "icon": "nodejs" },
+    { "name": "MySQL", "icon": "mysql" },
+    { "name": "PostgreSQL", "icon": "postgresql" },
+    { "name": "Supabase", "icon": "supabase" }
+  ],
+  "Cybersecurity": [
+    { "name": "Kali Linux", "icon": "kalilinux" },
+    { "name": "Wireshark", "icon": "wireshark" },
+    { "name": "Pen-testing", "icon": "shield-check" }
+  ],
+  "Machine Learning": [
+    { "name": "Python", "icon": "python" },
+    { "name": "Pandas", "icon": "pandas" },
+    { "name": "NumPy", "icon": "numpy" },
+    { "name": "TensorFlow / Keras", "icon": "tensorflow" },
+    { "name": "Matplotlib", "icon": "chart-line" },
+    { "name": "Scikit-learn", "icon": "scikitlearn" },
+    { "name": "Statsmodels", "icon": "sigma" },
+    { "name": "SciPy", "icon": "scipy" }
+  ]
+}
