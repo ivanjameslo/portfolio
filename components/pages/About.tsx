@@ -8,6 +8,9 @@ import { Github, Linkedin, Mail  } from 'lucide-react';
 import techStack from "@/lib/TechStack.json";
 import { iconMap } from "@/lib/iconMap";
 import { BadgeHoverProvider } from "@/components/usable-components/BadgeHoverContext";
+import workExperience from "@/lib/WorkExperience.json";
+import CardWorkExperience from "@/components/usable-components/CardWorkExperience";
+import { cn } from "@/lib/utils";
 
 export default function About() {
   return (
@@ -23,21 +26,21 @@ export default function About() {
             <div className="flex flex-wrap gap-3 justify-center mt-8">
                 <Badges
                     label="Front-End"
-                    icon={<Code className="w-3 h-3 sm:w-4 sm:h-4" />}
+                    icon={<Code className="w-3 h-3 sm:w-4 sm:h-4 text-[#FCA311]" />}
                     color="blue"
                     className="text-xs sm:text-sm"
                 />
 
                 <Badges
                     label="Cybersecurity"
-                    icon={<ShieldCheck className="w-3 h-3 sm:w-4 sm:h-4" />}
+                    icon={<ShieldCheck className="w-3 h-3 sm:w-4 sm:h-4 text-[#FCA311]" />}
                     color="blue"
                     className="text-xs sm:text-sm"
                 />
 
                 <Badges
                     label="Machine Learning"
-                    icon={<Brain className="w-3 h-3 sm:w-4 sm:h-4" />}
+                    icon={<Brain className="w-3 h-3 sm:w-4 sm:h-4 text-[#FCA311]" />}
                     color="blue"
                     className="text-xs sm:text-sm"
                 />
@@ -120,13 +123,12 @@ export default function About() {
         {/* Tech Stack Section */}
         <div className="mt-15 w-full px-3 lg:px-40">
             <h1 className="text-2xl text-[#14213D] lg:text-3xl font-bold text-left">Tech Stack</h1>
-            <div className="grid grid-cols-1 lg:grid-cols-3 gap-10 mt-5">
+            <div className="grid grid-cols-1 lg:grid-cols-3 gap-10 mt-8 lg:mt-5">
               {Object.entries(techStack).map(([category, items]) => (
                 <div key={category}>
                   <h2 className="text-xl font-semibold mb-4">
                     {category}
                   </h2>
-
                   <BadgeHoverProvider>
                   <div className="flex flex-wrap gap-3">
                     {items.map((item) => (
@@ -146,8 +148,25 @@ export default function About() {
         </div>
 
         {/* Work Experience Section */}
-        <div className="mt-15 w-full px-3 lg:px-40">
-            <h1 className="text-2xl text-[#14213D] lg:text-3xl font-bold text-left">Work Experience</h1>
+        <div className="mt-15 w-full px-3 lg:px-40"> 
+          <h1 className="text-2xl text-[#14213D] lg:text-3xl font-bold text-left">Work Experience</h1> 
+          <div className="mt-8 lg:mt-5"> 
+            {workExperience.map((work) => ( 
+              <div key={work.heading} className="mb-8 last:mb-0"> 
+                <CardWorkExperience 
+                  heading={work.heading} 
+                  highlight_details={work.highlight_details}
+                  description={work.description} 
+                /> 
+              </div> 
+            ))} 
+          </div> 
+        </div>
+
+        {/* Certificates Section */}
+        <div className="mt-15 w-full px-3 lg:px-40"> 
+          <h1 className="text-2xl text-[#14213D] lg:text-3xl font-bold text-left">Certifications</h1> 
+          
         </div>
     </div>
   );

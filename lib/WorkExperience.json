@@ -1,0 +1,31 @@
+[
+  {
+    "heading": "Security Software Developer Intern",
+    "highlight_details": "Tech Advise | April 2025 - June 2025",
+    "description": [
+      "Completed structured cybersecurity training modules based on ISC² security frameworks, strengthening foundational knowledge in information security principles.",
+      "Gained hands-on exposure to AWS cloud and security services, focusing on core cloud concepts and security best practices.",
+      "Conducted practical experiments using Kali Linux and Wireshark to understand network traffic analysis and common security tools.",
+      "Performed penetration testing on a web application developed by Tech Advise, identifying potential vulnerabilities and security risks.",
+      "Participated in industry talks and discussions with the Cybersecurity Head of LMNTRIX (Singapore), gaining insight into real-world security operations and career practices."
+    ]
+  },
+  {
+    "heading": "Front-End Developer",
+    "highlight_details": "SAMAHAN Systems Development | July 2024 - Present",
+    "description": [
+      "Attended front-end development workshops to strengthen core UI and web development skills.",
+      "Participated in multiple web development projects across different student organizations, primarily focusing on front-end development with Next.js, React, TypeScript, JavaScript, Tailwind CSS, and Git, while gaining foundational exposure to backend and database tools such as Node.js, Prisma, and SQL-based systems.",
+      "Collaborated closely with other developers to build and improve shared codebases."
+    ]
+  },
+  {
+    "heading": "Computer Studies Cluster Ambassador",
+    "highlight_details": "SAMAHAN Research and Development | September 2022 - May 2023",
+    "description": [
+      "Collaborated with fellow ambassadors from different departments to support cross-functional initiatives and student-focused programs.",
+      "Conducted research and gathered insights aimed at improving school processes and student experiences.",
+      "Facilitated both individual and group interviews to collect feedback and qualitative data."
+    ]
+  }
+]
