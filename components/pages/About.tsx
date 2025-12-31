@@ -3,14 +3,17 @@
 import Image from "next/image";
 import Link from "next/link";
 import Badges from "@/components/usable-components/Badge";
-import { Code, ShieldCheck, Brain, LineChart, Sigma  } from "lucide-react";
+import { Code, ShieldCheck, Brain, LineChart, Sigma, FileText  } from "lucide-react";
 import { Github, Linkedin, Mail  } from 'lucide-react';
 import techStack from "@/lib/TechStack.json";
 import { iconMap } from "@/lib/iconMap";
 import { BadgeHoverProvider } from "@/components/usable-components/BadgeHoverContext";
 import workExperience from "@/lib/WorkExperience.json";
+import certifications from "@/lib/Certificates.json";
 import CardWorkExperience from "@/components/usable-components/CardWorkExperience";
-import { cn } from "@/lib/utils";
+import CardCertificates from "@/components/usable-components/CardCertificates";
+import education from "@/lib/Education.json";
+import Buttons from "@/components/usable-components/Buttons";
 
 export default function About() {
   return (
@@ -166,7 +169,93 @@ export default function About() {
         {/* Certificates Section */}
         <div className="mt-15 w-full px-3 lg:px-40"> 
           <h1 className="text-2xl text-[#14213D] lg:text-3xl font-bold text-left">Certifications</h1> 
-          
+          <div className="mt-8 lg:mt-5 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-6 gap-6">
+            {[...certifications].reverse().map((cert, idx, arr) => {
+              const total = arr.length;
+
+              // =========================
+              // LG CONDITION (KEEP THIS)
+              // =========================
+              const remainder = total % 3; // last row count on lg (since 3 per row)
+              const lastRowStartIndex = total - remainder;
+
+              const isInLastRow = remainder !== 0 && idx >= lastRowStartIndex;
+
+              // Default: normal 3-per-row layout
+              let lgPlacement = "lg:col-span-2";
+
+              // If last row has 1 item -> center it
+              if (isInLastRow && remainder === 1) {
+                lgPlacement = "lg:col-span-2 lg:col-start-3";
+              }
+
+              // If last row has 2 items -> place them between the 3 columns above
+              if (isInLastRow && remainder === 2) {
+                const posInLastRow = idx - lastRowStartIndex; // 0 or 1
+                lgPlacement =
+                  posInLastRow === 0
+                    ? "lg:col-span-2 lg:col-start-2"
+                    : "lg:col-span-2 lg:col-start-4";
+              }
+
+              // =========================
+              // SM (TABLET) FIX (ADD THIS)
+              // =========================
+              const smRemainder = total % 2; // last row count on sm (2 per row)
+              const smLastRowStartIndex = total - smRemainder;
+              const smIsLastSingle = smRemainder === 1 && idx >= smLastRowStartIndex;
+
+              const smPlacement = smIsLastSingle
+                ? "sm:col-span-2 sm:col-start-1 sm:flex sm:justify-center"
+                : "";
+
+              return (
+                <div key={cert.cert_title} className={`${lgPlacement} ${smPlacement}`}>
+                  {/* Optional: keep card from stretching too wide on tablet when centered */}
+                  <div className={smIsLastSingle ? "w-full sm:max-w-[360px]" : "w-full"}>
+                    <CardCertificates
+                      cert_title={cert.cert_title}
+                      name={cert.name}
+                      date={cert.date}
+                      link={cert.link}
+                    />
+                  </div>
+                </div>
+              );
+            })}
+          </div>
+        </div>
+
+        {/* Education Section */}
+        <div className="mt-15 w-full px-3 lg:px-40"> 
+          <h1 className="text-2xl text-[#14213D] lg:text-3xl font-bold text-left">Education</h1>
+          <div className="mt-8 lg:mt-5">
+            {[...education].reverse().map((edu) => (
+              <div key={edu.degree} className="flex gap-4 mb-8 last:mb-0">
+                <div className="pt-2">
+                  <span className="block w-3 h-3 rounded-full bg-[#FCA311]" />
+                </div>
+                <div>
+                  <h2 className="text-lg lg:text-xl font-semibold">{edu.degree}</h2>
+                  <p className="text-sm lg:text-base text-gray-500 font-medium mb-2">{edu.institution} | {edu.year_range}</p>
+                  <p className="text-sm lg:text-base">Relevant Courseworks: {edu.coursework.join(", ")}</p>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+
+        {/* Resume Section */}
+        <div className="mt-15 w-full px-3 lg:px-40 flex justify-center mb-20 lg:mb-10"> 
+          <Buttons 
+            variant="outline" 
+            className="group mt-8 w-max"
+          >
+            <Link href="https://drive.google.com/file/d/1RHO_yaQQ90eWRzaepIPHz8F5bHwt0TDp/view?usp=sharing" target="_blank" rel="noopener noreferrer" className="flex items-center gap-4">
+              <FileText className="h-20 w-20 text-[#FCA311] transition-all group-hover:text-white" />
+              View My Resume
+            </Link>
+          </Buttons>
         </div>
     </div>
   );

@@ -1,0 +1,24 @@
+[
+  {
+    "degree": "STEM Computer Studies Strand",
+    "institution": "Ateneo de Davao University Senior High School",
+    "year_range": "2020 – 2022",
+    "coursework": [
+      "Program Logic",
+      "Computer Systems",
+      "HTML & CSS",
+      "Animation"
+    ]
+  },
+  {
+    "degree": "Bachelor of Science in Computer Science",
+    "institution": "Ateneo de Davao University",
+    "year_range": "2022 – 2026",
+    "coursework": [
+      "Data Structures",
+      "Algorithms",
+      "Web Development",
+      "Database Systems"
+    ]
+  }
+]
