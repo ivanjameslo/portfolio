@@ -5,6 +5,8 @@
     { "name": "Git", "icon": "git" },
     { "name": "TypeScript", "icon": "typescript" },
     { "name": "JavaScript", "icon": "javascript" },
+    { "name": "Dart", "icon": "dart" },
+    { "name": "Flutter", "icon": "flutter" },
     { "name": "Vanilla CSS", "icon": "css3" },
     { "name": "Tailwind CSS", "icon": "tailwindcss" },
     { "name": "Prisma", "icon": "prisma" },
