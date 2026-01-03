@@ -1,0 +1,25 @@
+[
+  {
+    "label": "LinkedIn",
+    "value": "Ivan James Lo",
+    "icon": "linkedin",
+    "href": "https://www.linkedin.com/in/ivan-james-lo/"
+  },
+  {
+    "label": "GitHub",
+    "value": "ivanjameslo",
+    "icon": "github",
+    "href": "https://github.com/ivanjameslo"
+  },
+  {
+    "label": "Email",
+    "value": "ivanjameslo02@gmail.com",
+    "icon": "email",
+    "href": "https://mail.google.com/mail/?view=cm&to=ivanjameslo02@gmail.com"
+  },
+  {
+    "label": "Location",
+    "value": "Davao City, Philippines",
+    "icon": "location"
+  }
+]
