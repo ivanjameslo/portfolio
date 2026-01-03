@@ -6,9 +6,9 @@ import Image from "next/image";
 import Link from "next/link";
 
 const navLinks = [
-  { label: "Projects", href: "/" },
+  { label: "Projects", href: "/projects" },
   { label: "About Me", href: "/about" },
-  { label: "Contact Me", href: "/" },
+  { label: "Contact Me", href: "/contact-me" },
 ];
 
 export default function Navbar() {

@@ -1,6 +1,6 @@
 "use client";
 
-import RowCard from "@/components/usable-components/RowCard"
+import RowCard from "@/components/usable-components/CardProjects"
 import Image from "next/image";
 import RowCardData from "../../lib/RowCard.json";
 import Buttons from "@/components/usable-components/Buttons";
@@ -9,7 +9,7 @@ import { ArrowRight } from "lucide-react";
 
 export default function Highlights() {
   return (
-    <section className="p-3 lg:p-50">
+    <section className="p-3 lg:p-50 mb-25 lg:mb-0">
       <div className="mx-auto max-w-screen-xl flex flex-col gap-10 w-full">
         <div className="px-5">
           <h1 className="text-2xl text-[#14213D] lg:text-4xl font-bold">Featured Projects</h1>
@@ -28,7 +28,7 @@ export default function Highlights() {
                 variant="outline" 
                 className="group mt-8 w-max"
               >
-                <Link href="/about" className="flex items-center gap-4">
+                <Link href="/projects" className="flex items-center gap-4">
                   See All Projects
                   <ArrowRight className="h-20 w-20 text-[#FCA311] transition-all group-hover:text-white" />
                 </Link>
