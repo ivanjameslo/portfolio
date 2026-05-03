@@ -37,7 +37,7 @@ export default function CertificationCard({
     >
       <Card
         className={cn(
-          "h-full rounded-2xl border border-gray-200 bg-white",
+          "h-full rounded-2xl border border-gray-200 bg-white !py-0",
           "shadow-sm transition-all duration-300 hover:shadow-lg hover:-translate-y-1",
           className
         )}
