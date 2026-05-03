@@ -14,10 +14,85 @@ import CardWorkExperience from "@/components/usable-components/CardWorkExperienc
 import CardCertificates from "@/components/usable-components/CardCertificates";
 import education from "@/lib/Education.json";
 import Buttons from "@/components/usable-components/Buttons";
+import { useEffect, useState } from "react";
+
+const sections = [
+    "tech-stack",
+    "work-experience",
+    "certifications",
+    "education",
+  ];
 
 export default function About() {
+
+  const [active, setActive] = useState("");
+
+  useEffect(() => {
+    const handleScroll = () => {
+      let current = "";
+
+      sections.forEach((id) => {
+        const el = document.getElementById(id);
+        if (el) {
+          const offset = el.offsetTop - 150; // adjust for navbar
+          if (window.scrollY >= offset) {
+            current = id;
+          }
+        }
+      });
+
+      setActive(current);
+    };
+
+    window.addEventListener("scroll", handleScroll);
+    handleScroll(); // run on load
+
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
+
   return (
     <div className="flex flex-col items-center justify-center px-3 py-10 lg:px-20 lg:py-20 w-full">
+
+        {/* Navigation */}
+        <nav className="hidden lg:flex fixed left-6 top-1/2 -translate-y-1/2 z-50 flex-col gap-4">
+          {[
+            { label: "Tech Stack", href: "#tech-stack" },
+            { label: "Work Experience", href: "#work-experience" },
+            { label: "Certifications", href: "#certifications" },
+            { label: "Education", href: "#education" },
+          ].map((item) => {
+            const isActive = active === item.href.replace("#", "");
+
+            return (
+              <a
+                key={item.href}
+                href={item.href}
+                className="relative flex items-center group/item"
+              >
+                {/* Dot */}
+                <div
+                  className={`h-3 w-3 rounded-full transition ${
+                    isActive
+                      ? "bg-[#FCA311] scale-125"
+                      : "bg-gray-400 group-hover/item:bg-[#FCA311]"
+                  }`}
+                />
+
+                {/* Label */}
+                <span
+                  className={`absolute left-6 whitespace-nowrap rounded bg-white px-2 py-1 text-xs shadow transition-all ${
+                    isActive
+                      ? "opacity-100 translate-x-0 text-[#FCA311]"
+                      : "opacity-0 -translate-x-2 text-gray-500 group-hover/item:opacity-100 group-hover/item:translate-x-0"
+                  }`}
+                >
+                  {item.label}
+                </span>
+              </a>
+            );
+          })}
+        </nav>
+
         <div className="text-center">
             <h1 className="text-5xl md:text-7xl font-bold text-[#14213D]">
             About <span className="text-[#FCA311]">Me</span>
@@ -124,7 +199,7 @@ export default function About() {
         </div>
 
         {/* Tech Stack Section */}
-        <div className="mt-15 w-full px-3 lg:px-40">
+        <div id="tech-stack" className="mt-15 w-full px-3 lg:px-40 scroll-mt-32">
             <h1 className="text-2xl text-[#14213D] lg:text-3xl font-bold text-left">Tech Stack</h1>
             <div className="grid grid-cols-1 lg:grid-cols-3 gap-10 mt-8 lg:mt-5">
               {Object.entries(techStack).map(([category, items]) => (
@@ -151,7 +226,7 @@ export default function About() {
         </div>
 
         {/* Work Experience Section */}
-        <div className="mt-15 w-full px-3 lg:px-40"> 
+        <div id="work-experience" className="mt-15 w-full px-3 lg:px-40 scroll-mt-32">
           <h1 className="text-2xl text-[#14213D] lg:text-3xl font-bold text-left">Work Experience</h1> 
           <div className="mt-8 lg:mt-5"> 
             {workExperience.map((work) => ( 
@@ -167,7 +242,7 @@ export default function About() {
         </div>
 
         {/* Certificates Section */}
-        <div className="mt-15 w-full px-3 lg:px-40"> 
+        <div id="certifications" className="mt-15 w-full px-3 lg:px-40 scroll-mt-32">
           <h1 className="text-2xl text-[#14213D] lg:text-3xl font-bold text-left">Certifications</h1> 
           <div className="mt-8 lg:mt-5 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-6 gap-6">
             {[...certifications].reverse().map((cert, idx, arr) => {
@@ -227,7 +302,7 @@ export default function About() {
         </div>
 
         {/* Education Section */}
-        <div className="mt-15 w-full px-3 lg:px-40"> 
+        <div id="education" className="mt-15 w-full px-3 lg:px-40 scroll-mt-32">
           <h1 className="text-2xl text-[#14213D] lg:text-3xl font-bold text-left">Education</h1>
           <div className="mt-8 lg:mt-5">
             {[...education].reverse().map((edu) => (
@@ -246,7 +321,7 @@ export default function About() {
         </div>
 
         {/* Resume Section */}
-        <div className="mt-15 w-full px-3 lg:px-40 flex justify-center mb-20 lg:mb-10"> 
+        <div className="mt-15 w-full px-3 lg:px-40 flex justify-center mb-25 lg:mb-25"> 
           <Buttons 
             variant="outline" 
             className="group mt-8 w-max"
