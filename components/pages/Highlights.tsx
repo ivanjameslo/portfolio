@@ -17,9 +17,11 @@ export default function Highlights() {
             {RowCardData.map((card) => (
               <div key={card.title} className="mb-8 last:mb-0">
                 <RowCard 
+                  // key={card.title}
                   title={card.title} 
                   description={card.description} 
                   image={card.image} 
+                  link={card.link}
                 />
               </div>
             ))}

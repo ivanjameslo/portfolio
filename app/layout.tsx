@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 // import { Geist, Geist_Mono } from "next/font/google";
 import { Parkinsans, Libre_Franklin } from "next/font/google";
+// @ts-ignore: side-effect import for global CSS
 import "./globals.css";
 import Navbar from "../components/usable-components/Navbar";
 import Footer from "../components/usable-components/Footer";
