@@ -6,15 +6,15 @@
     "link": "https://ec-forecasting-web.vercel.app"
   },
   {
-    "title": "Project Title Two",
-    "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo.",
+    "title": "COA Submission Hub",
+    "description": "This project involves developing a web application that streamlines the submission and tracking of Commission on Audit (COA) forms, providing a user-friendly interface to manage submissions efficiently while ensuring proper processing and compliance. The platform is accessible only to Ateneo de Davao (AdDU) accounts.",
     "image": "/sample.jpeg",
-    "link": "#"
+    "link": "https://coa-submission-hub.vercel.app"
   },
   {
-    "title": "Project Title Three",
-    "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo.",
-    "image": "/sample.jpeg",
+    "title": "Badminton Court Management System",
+    "description": "This project involves developing a mobile-based management system that allows badminton court owners to efficiently handle reservations, track player activities, and organize tournaments. The platform streamlines day-to-day operations through a user-friendly interface, improving scheduling, and overall management.",
+    "image": "/project-pics/Badminton.png",
     "link": "#"
   }
 ]
