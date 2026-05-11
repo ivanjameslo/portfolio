@@ -2,15 +2,21 @@ import Image from "next/image";
 import { Card, CardContent } from "@/components/ui/card";
 import { cn } from "@/lib/utils";
 import Link from "next/link";
+import Badges from "@/components/usable-components/Badge";
+interface TechItem {
+  label: string;
+  icon?: React.ReactNode;
+}
 
 interface RowCardProps {
     title: string;
     description: string
     image: string;
     link: string;
+    techStack?: TechItem[];
 }
 
-export default function RowCard({title, description, image, link}: RowCardProps) {
+export default function RowCard({title, description, image, link, techStack = []}: RowCardProps) {
     return (
         <Link href={link} target="_blank" rel="noopener noreferrer" className="block">
             <Card 
@@ -44,6 +50,19 @@ export default function RowCard({title, description, image, link}: RowCardProps)
                             />
                             <h2 className="text-xl font-bold text-[#14213D] group-hover:text-white transition-colors duration-300">{title}</h2>
                             <p className="text-sm md:text-base mt-2 group-hover:text-white transition-colors duration-300">{description}</p>
+
+                            {techStack.length > 0 && (
+                                <div className="flex flex-wrap gap-2 mt-5">
+                                {techStack.map((tech) => (
+                                    <Badges
+                                    key={tech.label}
+                                    label={tech.label}
+                                    icon={tech.icon}
+                                    variant="project"
+                                    />
+                                ))}
+                                </div>
+                            )}
                         </div>
                     </div>
                 </CardContent>

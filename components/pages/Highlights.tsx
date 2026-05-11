@@ -22,6 +22,7 @@ export default function Highlights() {
                   description={card.description} 
                   image={card.image} 
                   link={card.link}
+                  techStack={card.techStack?.map((tech) => ({ label: tech }))}
                 />
               </div>
             ))}

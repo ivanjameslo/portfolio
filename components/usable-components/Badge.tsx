@@ -13,7 +13,7 @@ type SkillBadgeProps = {
   /** Color theme (for solid variant) */
   color?: "blue" | "yellow";
   /** Badge behavior */
-  variant?: "solid" | "cycle";
+  variant?: "solid" | "cycle" | "project";
   className?: string;
 };
 
@@ -47,7 +47,9 @@ export default function Badges({
         "flex items-center gap-2 px-3 py-1 text-sm font-medium rounded-full",
         "transition-colors duration-300 cursor-default",
 
-        // SOLID (keep your original solid behavior)
+        // =================================================
+        // SOLID VARIANT
+        // =================================================
         variant === "solid" &&
           color === "blue" &&
           "bg-[#14213D] text-white hover:bg-[#1f2f5a] border-transparent",
@@ -55,6 +57,10 @@ export default function Badges({
         variant === "solid" &&
           color === "yellow" &&
           "bg-[#FCA311] text-[#14213D] hover:bg-[#fbbf24] border-transparent",
+
+        // =================================================
+        // CYCLE VARIANT
+        // =================================================
 
         // CYCLE base (white when not hovered)
         isCycle && "bg-white text-[#14213D] border border-[#14213D]/20",
@@ -69,6 +75,20 @@ export default function Badges({
           isHovered &&
           activeColor === "yellow" &&
           "bg-[#FCA311] text-[#14213D] border-transparent",
+
+        // =================================================
+        // PROJECT VARIANT
+        // =================================================
+        variant === "project" &&
+          `
+          bg-white 
+          text-[#14213D]
+          border-[#14213D]/20
+
+          group-hover:bg-[#FCA311]
+          group-hover:text-white
+          group-hover:border-[#FCA311]
+        `,
 
         className
       )}
@@ -85,7 +105,16 @@ export default function Badges({
             // Icon coloring for CYCLE
             isCycle && !isHovered && "text-[#14213D]",
             isCycle && isHovered && activeColor === "blue" && "text-white",
-            isCycle && isHovered && activeColor === "yellow" && "text-[#14213D]"
+            isCycle && isHovered && activeColor === "yellow" && "text-[#14213D]",
+
+            // =============================================
+            // PROJECT ICON COLORS
+            // =============================================
+            variant === "project" &&
+              `
+              text-[#14213D]
+              group-hover:text-white
+            `
           )}
         >
           {icon}
