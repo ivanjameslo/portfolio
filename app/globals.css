@@ -5,8 +5,8 @@
 @custom-variant dark (&:is(.dark *));
 
 :root {
-  --font-body: "Libre Franklin", ui-sans-serif, system-ui, sans-serif;
-  --font-heading: "Parkinsans", ui-sans-serif, system-ui, sans-serif;
+  /* --font-body: "Libre Franklin", ui-sans-serif, system-ui, sans-serif;
+  --font-heading: "Parkinsans", ui-sans-serif, system-ui, sans-serif; */
   --radius: 0.625rem;
   --background: oklch(1 0 0);
   --foreground: oklch(0.145 0 0);

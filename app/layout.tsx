@@ -6,11 +6,6 @@ import "./globals.css";
 import Navbar from "../components/usable-components/Navbar";
 import Footer from "../components/usable-components/Footer";
 
-// const geistSans = Geist({
-//   variable: "--font-geist-sans",
-//   subsets: ["latin"],
-// });
-
 const libre = Libre_Franklin({
   subsets: ["latin"],
   weight: ["100","300","400","600","900"],
@@ -18,15 +13,11 @@ const libre = Libre_Franklin({
   variable: "--font-body",
 });
 
-// const geistMono = Geist_Mono({
-//   variable: "--font-geist-mono",
-//   subsets: ["latin"],
-// });
 
 const parkinsans = Parkinsans({
   subsets: ["latin"],
-  weight: ["300","400","500","600","700","800"],
-  style: ["normal"],
+  // weight: ["300","400","500","600","700","800"],
+  // style: ["normal"],
   variable: "--font-heading",
 });
 
