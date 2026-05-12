@@ -1,0 +1,55 @@
+[
+  {
+    "category": "cybersecurity",
+    "featured": true,
+    "title": "Internal Web Application Penetration Testing",
+    "subtitle": "Collaborative project | Redacted",
+    "description": "This project involves conducting penetration testing on an internal web application to identify vulnerabilities and security risks. Discovered findings were documented and organized to support analysis, while remediation recommendations were provided to help strengthen the overall security of the system.",
+    "image": "/project-pics/CyberSec-PenTest.png",
+    "gallery": [
+      "/project-pics/CyberSec-PenTest1.png",
+      "/project-pics/CyberSec-PenTest2.png"
+    ],
+    "techStack": [
+      {
+        "label": "Kali Linux"
+      },
+      {
+        "label": "Wireshark"
+      },
+      {
+        "label": "Security Documentation"
+      },
+      {
+        "label": "Vulnerability Assessment"
+      },
+      {
+        "label": "Penetration Testing"
+      }
+    ]
+  },
+  {
+    "category": "cybersecurity",
+    "featured": true,
+    "title": "AWS EC2 Infrastructure Deployment and Monitoring",
+    "subtitle": "Collaborative project | Redacted",
+    "description": "This project involves deploying and managing AWS EC2 instances using AWS CloudFormation with YAML-based Infrastructure as Code (IaC) templates. The project also included monitoring instance performance and usage through AWS services to support efficient resource management and system reliability.",
+    "image": "/project-pics/CyberSec-EC2.png",
+    "gallery": [
+      "/project-pics/CyberSec-EC2-1.png",
+      "/project-pics/CyberSec-EC2-2.png",
+      "/project-pics/CyberSec-EC2-3.png"
+    ],
+    "techStack": [
+      {
+        "label": "AWS"
+      },
+      {
+        "label": "EC2 Instance"
+      },
+      {
+        "label": "Cloud"
+      }
+    ]
+  }
+]

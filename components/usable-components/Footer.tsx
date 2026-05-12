@@ -56,7 +56,7 @@ export default function Footer() {
        <footer
         className={cn(
             "fixed bottom-0 inset-x-0 z-50 transition-all duration-200",
-            show ? "opacity-100 translate-y-0" : "opacity-0 translate-y-3 pointer-events-none"
+            show ? "translate-y-0" : "translate-y-28 pointer-events-none"
         )}
     >
             <div className="flex items-center justify-center w-full px-8 md:px-15 py-2 md:py-5 bg-white/90 backdrop-blur shadow-[0_-10px_30px_-10px_rgba(0,0,0,0.12)]">

@@ -1,0 +1,112 @@
+[
+  {
+    "category": "development",
+    "featured": true,
+    "title": "COA Submission Hub",
+    "subtitle": "Collaborative project | Deployed and accessed through AdDU account",
+    "description": "This project involves developing a secure web application that streamlines the submission and tracking of Commission on Audit (COA) forms within Ateneo de Davao University (AdDU). The platform provides an organized and user-friendly interface for managing submissions efficiently while ensuring secure access, proper processing, and institutional compliance through AdDU account authentication.",
+    "image": "",
+    "link": "https://samahan.addu.edu.ph/coahub",
+    "techStack": [
+      {
+        "label": "Next.js"
+      },
+      {
+        "label": "Tailwind CSS"
+      },
+      {
+        "label": "TypeScript"
+      },
+      {
+        "label": "ShadCN"
+      },
+      {
+        "label": "Docker"
+      },
+      {
+        "label": "Tanstack Query"
+      }
+    ]
+  },
+  {
+    "category": "development",
+    "featured": true,
+    "title": "SAMAHAN Newsfeed",
+    "subtitle": "Collaborative project | Deployed",
+    "description": "This project involves developing a centralized newsfeed platform for SAMAHAN that allows students to access news articles, announcements, and school updates published by SAMAHAN members. The platform provides an organized and user-friendly interface that improves information dissemination and keeps the student body informed about campus events, activities, and important updates.",
+    "image": "/project-pics/Newsfeed.png",
+    "link": "https://samahan.addu.edu.ph/newsfeed/",
+    "techStack": [
+      {
+        "label": "Next.js"
+      },
+      {
+        "label": "Tailwind CSS"
+      },
+      {
+        "label": "TypeScript"
+      },
+      {
+        "label": "ShadCN"
+      },
+      {
+        "label": "Docker"
+      },
+      {
+        "label": "Tanstack Query"
+      }
+    ]
+  },
+  {
+    "category": "development",
+    "featured": true,
+    "title": "ADTO (Automated Crowd Monitoring System v2)",
+    "subtitle": "Collaborative project | Deployed | Client-side",
+    "description": "This project involves developing a centralized event management and crowd monitoring platform that allows administrators to manage events, update participant limits, and monitor ticket distribution efficiently. The system enables students to view upcoming and ongoing events, purchase tickets through HelixPay integration, and access event-related information through a user-friendly web application.",
+    "image": "/project-pics/ADTO.png",
+    "link": "https://samahan.addu.edu.ph/adto/home",
+    "techStack": [
+      {
+        "label": "Next.js"
+      },
+      {
+        "label": "Tailwind CSS"
+      },
+      {
+        "label": "TypeScript"
+      },
+      {
+        "label": "ShadCN"
+      },
+      {
+        "label": "Docker"
+      },
+      {
+        "label": "Tanstack Query"
+      }
+    ]
+  },
+  {
+    "category": "development",
+    "featured": true,
+    "title": "Badminton Court Management System",
+    "subtitle": "Individual project | Not deployed",
+    "description": "This project involves developing a mobile-based management system that enables badminton court owners to manage reservations, monitor player activities, and organize tournaments through a centralized platform. The application provides a user-friendly interface that streamlines scheduling, improves operational efficiency, and supports the overall management of badminton court services.",
+    "image": "/project-pics/Badminton.png",
+    "link": "/project-video/Badminton.mp4",
+    "techStack": [
+      {
+        "label": "Dart"
+      },
+      {
+        "label": "Flutter"
+      },
+      {
+        "label": "XCode"
+      },
+      {
+        "label": "Simulator"
+      }
+    ]
+  }
+]

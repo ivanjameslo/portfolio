@@ -51,7 +51,7 @@ export default function About() {
   }, []);
 
   return (
-    <div className="flex flex-col items-center justify-center px-3 py-10 lg:px-20 lg:py-20 w-full">
+    <div className="mt-15 flex flex-col items-center justify-center px-3 py-10 lg:px-20 lg:py-20 w-full">
 
         {/* Navigation */}
         <nav className="hidden lg:flex fixed left-6 top-1/2 -translate-y-1/2 z-50 flex-col gap-4">

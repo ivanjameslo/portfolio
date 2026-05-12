@@ -46,7 +46,9 @@ export default function RootLayout({
         className={`${libre.variable} ${parkinsans.variable} antialiased`}
       >
         <Navbar />
-        {children}
+        <main>
+          {children}
+        </main>
         <Footer />
       </body>
     </html>
