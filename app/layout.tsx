@@ -22,7 +22,7 @@ const parkinsans = Parkinsans({
 });
 
 export const metadata: Metadata = {
-  title: "Ivan Portfolio",
+  title: "Ivan Lo - Portfolio",
   description: "Ivan Lo's personal portfolio website",
 };
 
