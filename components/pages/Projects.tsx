@@ -1,16 +1,11 @@
 "use client";
 
-import Badges from "@/components/usable-components/Badge";
-import { Code, ShieldCheck, Brain, LineChart, Sigma, FileText  } from "lucide-react";
+import { Code, ShieldCheck, Brain } from "lucide-react";
 import RowCard from "@/components/usable-components/CardProjects"
-import Image from "next/image";
-import Buttons from "@/components/usable-components/Buttons";
-import Link from "next/link";
-import { ArrowRight } from "lucide-react";
 import ProjectML from "@/lib/Project-ML.json";
 import ProjectCS from "@/lib/Project-CS.json";
 import ProjectDev from "@/lib/Project-Dev.json";
-import { useEffect, useState } from "react";
+import { useEffect, useState, useRef } from "react";
 
 const sections = [
   { id: "development-projects", label: "Development" },
@@ -19,8 +14,21 @@ const sections = [
 ];
 
 export default function Projects() {
+    // Navigation active state
     const [active, setActive] = useState("");
 
+    // Section visibility states
+    const devRef = useRef<HTMLElement | null>(null);
+    const cyberRef = useRef<HTMLElement | null>(null);
+    const mlRef = useRef<HTMLElement | null>(null);
+
+    const [showSections, setShowSections] = useState({
+    dev: false,
+    cyber: false,
+    ml: false,
+    });
+
+    // Navigation scroll listener
     useEffect(() => {
         const handleScroll = () => {
         let current = "";
@@ -42,6 +50,41 @@ export default function Projects() {
         handleScroll();
 
         return () => window.removeEventListener("scroll", handleScroll);
+    }, []);
+
+    // Section visibility scroll listener
+    useEffect(() => {
+        const observer = new IntersectionObserver(
+            (entries) => {
+            entries.forEach((entry) => {
+                if (entry.isIntersecting) {
+                if (entry.target === devRef.current) {
+                    setShowSections((prev) => ({ ...prev, dev: true }));
+                    observer.unobserve(entry.target);
+                }
+
+                if (entry.target === cyberRef.current) {
+                    setShowSections((prev) => ({ ...prev, cyber: true }));
+                    observer.unobserve(entry.target);
+                }
+
+                if (entry.target === mlRef.current) {
+                    setShowSections((prev) => ({ ...prev, ml: true }));
+                    observer.unobserve(entry.target);
+                }
+                }
+            });
+            },
+            {
+            threshold: 0.2,
+            }
+        );
+
+        if (devRef.current) observer.observe(devRef.current);
+        if (cyberRef.current) observer.observe(cyberRef.current);
+        if (mlRef.current) observer.observe(mlRef.current);
+
+        return () => observer.disconnect();
     }, []);
   
     return (
@@ -80,14 +123,20 @@ export default function Projects() {
             </nav>
             
             <div className="text-center">
-                <h1 className="text-5xl md:text-7xl font-bold text-[#14213D]"><span className="text-[#FCA311]">My</span> Projects</h1>
-                <p className="text-sm md:text-xl text-gray-500 mt-3 lg:mt-5 flex-wrap px-0 lg:px-70">
+                <h1 className="animate-fade-up text-5xl md:text-7xl font-bold text-[#14213D]"><span className="text-[#FCA311]">My</span> Projects</h1>
+                <p className="animate-fade-up-delay text-sm md:text-xl text-gray-500 mt-3 lg:mt-5 flex-wrap px-0 lg:px-70">
                     Showcasing skills and experience through a variety of web development, security, and machine learning projects.
                 </p>
             </div>
 
             {/* Development Projects */}
-            <section className="scroll-mt-25 mt-32 w-full px-3 lg:px-40" id="development-projects">
+            <section
+                ref={devRef}
+                id="development-projects"
+                className={`scroll-mt-25 mt-32 w-full px-3 lg:px-40 ${
+                    showSections.dev ? "animate-fade-right" : "before-fade-right"
+                }`}
+            >
                 <div className="mb-8">
                     <div className="flex items-center gap-3">
                         <Code className="text-[#FCA311] mr-3 h-7 w-7"/>
@@ -122,7 +171,13 @@ export default function Projects() {
             </section>
 
             {/* Cybersecurity Projects */}
-            <section className="scroll-mt-25 mt-32 w-full px-3 lg:px-40" id="cybersecurity-projects">
+            <section
+                ref={cyberRef}
+                id="cybersecurity-projects"
+                className={`scroll-mt-25 mt-32 w-full px-3 lg:px-40 ${
+                    showSections.cyber ? "animate-fade-right" : "before-fade-right"
+                }`}
+            >
                 <div className="mb-8">
                     <div className="flex items-center gap-3">
                         <ShieldCheck className="text-[#FCA311] mr-3 h-7 w-7"/>
@@ -157,7 +212,13 @@ export default function Projects() {
             </section>
 
             {/* Machine Learning Projects */}
-            <section className="scroll-mt-25 mt-32 w-full px-3 lg:px-40 mb-15" id="machine-learning-projects">
+            <section
+                ref={mlRef}
+                id="machine-learning-projects"
+                className={`scroll-mt-25 mt-32 w-full px-3 lg:px-40 mb-15 ${
+                    showSections.ml ? "animate-fade-right" : "before-fade-right"
+                }`}
+            >
                 <div className="mb-8">
                     <div className="flex items-center gap-3">
                         <Brain className="text-[#FCA311] mr-3 h-7 w-7"/>

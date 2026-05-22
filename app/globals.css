@@ -5,8 +5,6 @@
 @custom-variant dark (&:is(.dark *));
 
 :root {
-  /* --font-body: "Libre Franklin", ui-sans-serif, system-ui, sans-serif;
-  --font-heading: "Parkinsans", ui-sans-serif, system-ui, sans-serif; */
   --radius: 0.625rem;
   --background: oklch(1 0 0);
   --foreground: oklch(0.145 0 0);
@@ -147,6 +145,7 @@ html {
   }
 }
 
+/* Click Glow Animation */
 @keyframes clickGlow {
   0% {
     opacity: 0.9;
@@ -162,4 +161,49 @@ html {
     opacity: 0;
     transform: scale(1.45);
   }
+}
+
+/* Fade Up Animation */
+@keyframes fadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(24px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-fade-up {
+  animation: fadeUp 0.8s ease-out forwards;
+}
+
+.animate-fade-up-delay {
+  animation: fadeUp 0.8s ease-out forwards;
+  animation-delay: 0.3s;
+  opacity: 0;
+}
+
+/* Fade Right Animation */
+@keyframes fadeRight {
+  from {
+    opacity: 0;
+    transform: translateX(-60px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+.before-fade-right {
+  opacity: 0;
+  transform: translateX(-60px);
+}
+
+.animate-fade-right {
+  animation: fadeRight 1.2s ease-out forwards;
 }

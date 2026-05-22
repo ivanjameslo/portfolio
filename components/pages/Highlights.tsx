@@ -6,26 +6,73 @@ import RowCardData from "../../lib/RowCard.json";
 import Buttons from "@/components/usable-components/Buttons";
 import Link from "next/link";
 import { ArrowRight } from "lucide-react";
+import { useEffect, useRef, useState } from "react";
 
 export default function Highlights() {
+  const featuredRef = useRef<HTMLDivElement | null>(null);
+  const aboutRef = useRef<HTMLDivElement | null>(null);
+
+  const [showFeatured, setShowFeatured] = useState(false);
+  const [showAbout, setShowAbout] = useState(false);
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            if (entry.target === featuredRef.current) setShowFeatured(true);
+            if (entry.target === aboutRef.current) setShowAbout(true);
+          }
+        });
+      },
+      {
+        threshold: 0.25,
+      }
+    );
+
+    if (featuredRef.current) observer.observe(featuredRef.current);
+    if (aboutRef.current) observer.observe(aboutRef.current);
+
+    return () => observer.disconnect();
+  }, []);
+
   return (
     <section className="p-3 lg:p-50 mb-25 lg:mb-0">
       <div className="mx-auto max-w-screen-xl flex flex-col gap-10 w-full">
-        <div className="px-5">
+        <div
+          ref={featuredRef}
+          className={`px-5 ${
+            showFeatured ? "animate-fade-right" : "before-fade-right"
+          }`}
+        >
           <h1 className="text-2xl text-[#14213D] lg:text-4xl font-bold">Featured Projects</h1>
           <div className="mt-8 lg:mt-5">
-            {RowCardData.map((card) => (
-              <div key={card.title} className="mb-8 last:mb-0">
-                <RowCard 
-                  // key={card.title}
-                  title={card.title} 
-                  description={card.description} 
-                  image={card.image} 
-                  link={card.link}
-                  techStack={card.techStack?.map((tech) => ({ label: tech }))}
-                />
-              </div>
-            ))}
+            <div className="space-y-10">
+              {RowCardData.map((card, index) => (
+                <div
+                  key={card.title}
+                  className="animate-fade-right"
+                  style={{
+                    animationDelay: `${0.3 + index * 0.2}s`,
+                    opacity: 0,
+                  }}
+                >
+                  <RowCard
+                    title={card.title}
+                    description={card.description}
+                    image={
+                      card.image && card.image.length > 0
+                        ? card.image
+                        : "/sample.jpeg"
+                    }
+                    link={card.link}
+                    techStack={card.techStack?.map((tech) => ({ label: tech }))}
+                  />
+                </div>
+              ))}
+            </div>
+
+
             <div className="flex justify-center">
               <Buttons 
                 variant="outline" 
@@ -39,7 +86,12 @@ export default function Highlights() {
             </div>
           </div>
         </div>
-        <div className="px-5 mt-20">
+        <div
+          ref={aboutRef}
+          className={`px-5 mt-20 ${
+            showAbout ? "animate-fade-right" : "before-fade-right"
+          }`}
+        >
           <h1 className="text-2xl text-[#14213D] lg:text-4xl font-bold">About Me</h1>
           <div className="mt-8 lg:mt-5 grid grid-cols-1 lg:grid-cols-5 gap-8 items-start">
             {/* Image */}

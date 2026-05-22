@@ -5,11 +5,16 @@ import { useEffect, useRef, useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
 
+const resumeLink =
+  "https://drive.google.com/file/d/1RHO_yaQQ90eWRzaepIPHz8F5bHwt0TDp/view?usp=sharing";
+
 const navLinks = [
   { label: "Projects", href: "/projects" },
   { label: "About Me", href: "/about" },
   { label: "Contact Me", href: "/contact-me" },
 ];
+
+const ctaLinks = [{ label: "Resume", href: resumeLink }];
 
 export default function Navbar() {
   const [open, setOpen] = useState(false);
@@ -79,17 +84,31 @@ export default function Navbar() {
         </Link>
 
         {/* Desktop nav */}
-        <nav className="hidden items-center gap-2 md:flex">
-          {navLinks.map((l) => (
-            <Link
-              key={l.label}
-              href={l.href}
-              className="rounded-full px-5 py-2 text-sm font-medium text-gray-700 transition-all duration-200 hover:bg-white/70 hover:text-gray-950"
-            >
-              {l.label}
-            </Link>
-          ))}
-        </nav>
+        <div className="hidden md:flex flex-1 items-center justify-center">
+          <nav className="flex items-center gap-16">
+            {navLinks.map((l) => (
+              <Link
+                key={l.label}
+                href={l.href}
+                className="text-sm font-medium text-gray-700 transition hover:text-[#FCA311]"
+              >
+                {l.label}
+              </Link>
+            ))}
+          </nav>
+        </div>
+
+        {/* Resume */}
+        <div className="hidden md:flex items-center">
+          <Link
+            href={resumeLink}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="rounded-full bg-[#14213D] px-6 py-3 text-sm font-semibold text-white transition duration-300 hover:bg-[#FCA311]"
+          >
+            Resume
+          </Link>
+        </div>
 
         {/* Mobile/Tablet hamburger */}
         <div className="relative md:hidden" ref={menuRef}>
@@ -137,6 +156,18 @@ export default function Navbar() {
                 <Link
                   key={l.label}
                   href={l.href}
+                  onClick={() => setOpen(false)}
+                  className="rounded-2xl px-4 py-3 text-sm font-medium text-gray-700 transition hover:bg-white/70 hover:text-gray-950"
+                >
+                  {l.label}
+                </Link>
+              ))}
+              {ctaLinks.map((l) => (
+                <Link
+                  key={l.label}
+                  href={l.href}
+                  target="_blank"
+                  rel="noopener noreferrer"
                   onClick={() => setOpen(false)}
                   className="rounded-2xl px-4 py-3 text-sm font-medium text-gray-700 transition hover:bg-white/70 hover:text-gray-950"
                 >
