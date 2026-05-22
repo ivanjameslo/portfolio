@@ -133,9 +133,7 @@ export default function Projects() {
             <section
                 ref={devRef}
                 id="development-projects"
-                className={`scroll-mt-25 mt-32 w-full px-3 lg:px-40 ${
-                    showSections.dev ? "animate-fade-right" : "before-fade-right"
-                }`}
+                className="animate-fade-right scroll-mt-25 mt-32 w-full px-3 lg:px-40"
             >
                 <div className="mb-8">
                     <div className="flex items-center gap-3">
