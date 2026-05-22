@@ -151,21 +151,29 @@ export default function Projects() {
                 </div>
 
                 <div className="space-y-10">
-                    {ProjectDev.map((project) => (
-                    <RowCard
+                    {ProjectDev.map((project, index) => (
+                    <div
                         key={project.title}
+                        className={showSections.dev ? "animate-fade-right" : "opacity-0"}
+                        style={{
+                        animationDelay: `${0.15 + index * 0.5}s`,
+                        opacity: 0
+                        }}
+                    >
+                        <RowCard
                         title={project.title}
                         subtitle={project.subtitle}
                         description={project.description}
                         image={
-                        project.image && project.image.length > 0
+                            project.image && project.image.length > 0
                             ? project.image
                             : "/sample.jpeg"
                         }
                         link={project.link}
                         techStack={project.techStack}
                         projectPage={project.featured}
-                    />
+                        />
+                    </div>
                     ))}
                 </div>
             </section>
@@ -192,21 +200,29 @@ export default function Projects() {
                 </div>
 
                 <div className="space-y-10">
-                    {ProjectCS.map((project) => (
-                    <RowCard
+                    {ProjectCS.map((project, index) => (
+                    <div
                         key={project.title}
+                        className={showSections.cyber ? "animate-fade-right" : "opacity-0"}
+                        style={{
+                        animationDelay: `${0.15 + index * 0.5}s`,
+                        opacity: 0
+                        }}
+                    >
+                        <RowCard
                         title={project.title}
                         subtitle={project.subtitle}
                         description={project.description}
                         image={
-                        project.image && project.image.length > 0
+                            project.image && project.image.length > 0
                             ? project.image
                             : "/sample.jpeg"
                         }
                         gallery={project.gallery}
                         techStack={project.techStack}
                         projectPage={project.featured}
-                    />
+                        />
+                    </div>
                     ))}
                 </div>
             </section>
@@ -234,21 +250,29 @@ export default function Projects() {
                 </div>
 
                 <div className="space-y-10">
-                    {ProjectML.map((project) => (
-                    <RowCard
+                    {ProjectML.map((project, index) => (
+                    <div
                         key={project.title}
+                        className={showSections.ml ? "animate-fade-right" : "opacity-0"}
+                        style={{
+                        animationDelay: `${0.15 + index * 0.5}s`,
+                        opacity: 0
+                        }}
+                    >
+                        <RowCard
                         title={project.title}
                         subtitle={project.subtitle}
                         description={project.description}
                         image={
-                        project.image && project.image.length > 0
+                            project.image && project.image.length > 0
                             ? project.image
                             : "/sample.jpeg"
                         }
                         link={project.link}
                         techStack={project.techStack}
                         projectPage={project.featured}
-                    />
+                        />
+                    </div>
                     ))}
                 </div>
             </section>
