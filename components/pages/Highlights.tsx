@@ -53,7 +53,7 @@ export default function Highlights() {
                   key={card.title}
                   className="animate-fade-right"
                   style={{
-                    animationDelay: `${0.3 + index * 0.2}s`,
+                    animationDelay: `${0.15 + index * 0.5}s`,
                     opacity: 0,
                   }}
                 >
