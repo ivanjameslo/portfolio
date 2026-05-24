@@ -206,7 +206,7 @@ export default function Home() {
       />
 
       {/* Main content */}
-      <div className="relative z-10 text-center">
+      <div className="select-none relative z-10 text-center">
         <h1 className="animate-fade-up text-4xl font-bold text-[#14213D] md:text-6xl lg:text-8xl">
           Hi, I’m <span className="text-[#FCA311]">Ivan</span>!
         </h1>
