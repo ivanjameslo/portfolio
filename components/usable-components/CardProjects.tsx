@@ -6,6 +6,7 @@ import { Card, CardContent } from "@/components/ui/card";
 import { cn } from "@/lib/utils";
 import Link from "next/link";
 import Badges from "@/components/usable-components/Badge";
+import { createPortal } from "react-dom";
 
 interface TechItem {
   label: string;
@@ -143,8 +144,10 @@ export default function RowCard({
         </Link>
       )}
 
-      {open && hasGallery && (
-        <div className="fixed inset-0 z-[999] flex items-center justify-center bg-black/75 px-4">
+      {open &&
+        hasGallery &&
+        createPortal(
+        <div className="fixed inset-0 z-[99999] flex items-center justify-center bg-black/60 px-4 backdrop-blur-md">
           <div className="relative w-full max-w-5xl rounded-[28px] bg-white p-4 shadow-xl">
             <button
               type="button"
@@ -193,7 +196,8 @@ export default function RowCard({
               </button>
             </div>
           </div>
-        </div>
+        </div>,
+        document.body
       )}
     </>
   );
