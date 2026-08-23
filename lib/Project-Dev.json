@@ -2,6 +2,41 @@
   {
     "category": "development",
     "featured": true,
+    "title": "Help Desk Management System",
+    "subtitle": "Full-stack project | Deployed",
+    "description": "A full-stack help desk platform designed to manage support requests through role-based workflows for requesters, support agents, and administrators. The system supports ticket creation, assignment, priority and status management, conversations, activity tracking, secure file attachments, user and category administration, and one-click public demo access. It also includes restricted demo permissions and an administrator-controlled reset feature to maintain clean sample data for portfolio visitors.",
+    "image": "/project-pics/HelpDesk.png",
+    "link": "https://helpdesk-ivanlo.vercel.app/",
+    "techStack": [
+      {
+        "label": "Next.js"
+      },
+      {
+        "label": "React"
+      },
+      {
+        "label": "TypeScript"
+      },
+      {
+        "label": "Tailwind CSS"
+      },
+      {
+        "label": "Auth.js"
+      },
+      {
+        "label": "Prisma ORM"
+      },
+      {
+        "label": "PostgreSQL"
+      },
+      {
+        "label": "Vercel Blob"
+      }
+    ]
+  },
+  {
+    "category": "development",
+    "featured": true,
     "title": "SAMAHAN Newsfeed",
     "subtitle": "Collaborative project | Deployed",
     "description": "This project involves developing a centralized newsfeed platform for SAMAHAN that allows students to access news articles, announcements, and school updates published by SAMAHAN members. The platform provides an organized and user-friendly interface that improves information dissemination and keeps the student body informed about campus events, activities, and important updates.",
