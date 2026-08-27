@@ -45,7 +45,7 @@ export default function RowCard({
         "group overflow-hidden rounded-[28px] border-0 bg-white !py-0 cursor-pointer",
         "shadow-[0_10px_30px_rgba(0,0,0,0.12)]",
         "transition-all duration-300 ease-out",
-        "hover:bg-[#14213D] hover:scale-[1.03] hover:shadow-[0_20px_50px_rgba(0,0,0,0.2)]"
+        "hover:bg-[#14213D] hover:-translate-y-1 hover:shadow-[0_20px_50px_rgba(0,0,0,0.18)]"
       )}
     >
       <CardContent className="p-0 h-full">
@@ -117,6 +117,11 @@ export default function RowCard({
                 ))}
               </div>
             )}
+            <div className="mt-6 flex justify-end">
+              <span className="text-sm font-semibold text-[#14213D] transition-colors duration-300 group-hover:text-[#FCA311]">
+                {hasGallery ? "View Gallery →" : "View Project ↗"}
+              </span>
+            </div>
           </div>
         </div>
       </CardContent>

@@ -14,7 +14,7 @@ const iconMap = {
 
 export default function ContactMe() {
   return (
-    <div className="mt-15 flex flex-col items-center justify-center px-3 py-10 lg:px-20 lg:py-20 w-full">
+    <div className="mt-15 flex flex-col items-center justify-center px-3 py-10 mb-5 lg:px-20 lg:py-20 w-full">
         <div className="text-center">
           <h1 className="animate-fade-up text-5xl md:text-7xl font-bold text-[#14213D]">Contact <span className="text-[#FCA311]">Me</span></h1>
           <p className="animate-fade-up-delay text-sm md:text-xl text-gray-500 mt-3 lg:mt-5 flex-wrap px-0 lg:px-70">
@@ -22,7 +22,7 @@ export default function ContactMe() {
           </p>
         </div>
 
-        <div className="mt-10 lg:mt-20 px-3 lg:px-55 w-full mb-20 lg:mb-0">
+        <div className="mt-10 lg:mt-20 px-3 lg:px-55 w-full mb-20 lg:mb-3">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-5xl mx-auto">
             {contacts.map((contact, index) => (
               <div

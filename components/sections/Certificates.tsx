@@ -12,9 +12,7 @@ const CertificationsSection = forwardRef<HTMLDivElement, Props>(
       <div
         ref={ref}
         id="certifications"
-        className={`mt-15 w-full px-3 lg:px-40 scroll-mt-32 ${
-          visible ? "animate-fade-right" : "before-fade-right"
-        }`}
+        className="mt-15 w-full px-3 lg:px-40 scroll-mt-32"
       >
         <h1 className="text-2xl text-[#14213D] lg:text-3xl font-bold text-left">
           Certificates
@@ -52,15 +50,9 @@ const CertificationsSection = forwardRef<HTMLDivElement, Props>(
               : "";
 
             return (
-              <div 
+              <div
                 key={cert.cert_title}
-                className={`${lgPlacement} ${smPlacement} ${
-                    visible ? "animate-fade-right" : "opacity-0"
-                }`}
-                style={{
-                    animationDelay: `${0.15 + idx * 0.3}s`,
-                    opacity: 0
-                }}
+                className={`${lgPlacement} ${smPlacement}`}
               >
                 <div className={smIsLastSingle ? "w-full sm:max-w-[360px]" : "w-full"}>
                   <CardCertificates

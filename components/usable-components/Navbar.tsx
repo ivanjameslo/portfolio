@@ -4,6 +4,7 @@ import logo from "@/public/logo.svg";
 import { useEffect, useRef, useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 
 const resumeLink =
   "https://drive.google.com/file/d/1RHO_yaQQ90eWRzaepIPHz8F5bHwt0TDp/view?usp=sharing";
@@ -21,6 +22,7 @@ export default function Navbar() {
   const [hidden, setHidden] = useState(false);
   const lastScrollY = useRef(0);
   const menuRef = useRef<HTMLDivElement | null>(null);
+  const pathname = usePathname();
 
   // Hide navbar on scroll down, show on scroll up
   useEffect(() => {
@@ -69,9 +71,9 @@ export default function Navbar() {
         hidden ? "-translate-y-28" : "translate-y-0",
       ].join(" ")}
     >
-      <div className="mx-auto flex max-w-6xl items-center justify-between rounded-full border border-white/30 bg-white/70 px-5 py-3 shadow-lg shadow-black/5 backdrop-blur-xl md:px-8">
+      <div className="mx-auto flex max-w-6xl items-center justify-between rounded-full border border-white/30 bg-[#eceff5] px-5 py-3 shadow-lg shadow-black/15 backdrop-blur-xl md:px-8">
         <Link href="/" className="flex items-center cursor-pointer">
-          <div className="relative w-[100px] md:w-[135px]">
+          <div className="relative w-[90px] md:w-[115px]">
             <Image
               src={logo}
               alt="Logo"
@@ -90,9 +92,16 @@ export default function Navbar() {
               <Link
                 key={l.label}
                 href={l.href}
-                className="text-sm font-medium text-gray-700 transition hover:text-[#FCA311]"
+                className={`relative text-sm font-medium transition-colors duration-300 ${
+                  pathname === l.href
+                    ? "text-[#14213D]"
+                    : "text-gray-700 hover:text-[#FCA311]"
+                }`}
               >
                 {l.label}
+                {pathname === l.href && (
+                  <span className="absolute -bottom-2 left-1/2 h-1.5 w-1.5 -translate-x-1/2 rounded-full bg-[#FCA311]" />
+                )}
               </Link>
             ))}
           </nav>

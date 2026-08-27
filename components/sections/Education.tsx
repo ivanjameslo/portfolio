@@ -10,9 +10,7 @@ const EducationSection = forwardRef<HTMLDivElement, Props>(({ visible }, ref) =>
     <div
       ref={ref}
       id="education"
-      className={`mt-15 w-full px-3 lg:px-40 scroll-mt-32 ${
-        visible ? "animate-fade-right" : "before-fade-right"
-      }`}
+      className="mt-15 w-full px-3 lg:px-40 scroll-mt-32"
     >
       <h1 className="text-2xl text-[#14213D] lg:text-3xl font-bold text-left">
         Education

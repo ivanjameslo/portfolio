@@ -98,18 +98,16 @@ export default function Badges({
           className={cn(
             "flex items-center transition-colors duration-300",
 
-            // Icon coloring for SOLID
+            // SOLID ICON COLORS
             variant === "solid" && color === "blue" && "text-white",
             variant === "solid" && color === "yellow" && "text-[#14213D]",
 
-            // Icon coloring for CYCLE
+            // CYCLE ICON COLORS
             isCycle && !isHovered && "text-[#14213D]",
             isCycle && isHovered && activeColor === "blue" && "text-white",
             isCycle && isHovered && activeColor === "yellow" && "text-[#14213D]",
 
-            // =============================================
             // PROJECT ICON COLORS
-            // =============================================
             variant === "project" &&
               `
               text-[#14213D]

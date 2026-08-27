@@ -1,84 +1,83 @@
-"use client";
-
-import logo from "@/public/logo.svg";
-import { useEffect, useRef, useState } from "react";
-import Image from "next/image";
 import Link from "next/link";
-import { Github, Linkedin, Mail  } from 'lucide-react';
-import { cn } from "@/lib/utils";
+import { Github, Linkedin, Mail } from "lucide-react";
+import Image from "next/image";
+import logo from "@/public/logo.svg";
 
 const contactLinks = [
-  { icon: <Github />, label: "Github", href: "https://github.com/ivanjameslo" },
-  { icon: <Linkedin />, label: "LinkedIn", href: "https://www.linkedin.com/in/ivan-james-lo/" },
-  { icon: <Mail />, label: "Email", href: "https://mail.google.com/mail/?view=cm&to=ivanjameslo02@gmail.com" },
+  {
+    icon: <Github size={20} />,
+    label: "GitHub",
+    href: "https://github.com/ivanjameslo",
+  },
+  {
+    icon: <Linkedin size={20} />,
+    label: "LinkedIn",
+    href: "https://www.linkedin.com/in/ivan-james-lo/",
+  },
+  {
+    icon: <Mail size={20} />,
+    label: "Email",
+    href: "https://mail.google.com/mail/?view=cm&to=ivanjameslo02@gmail.com",
+  },
 ];
 
 export default function Footer() {
-    const [show, setShow] = useState(false);
+  return (
+    <footer className="w-full bg-[#e1e7f0] pt-8 pb-4">
+      <div className="mx-auto max-w-7xl px-6 py-3 md:px-8">
+        
+        {/* Main Footer */}
+        <div className="flex flex-col items-center justify-between gap-8 md:flex-row">
+          
+          {/* Name / Description */}
+          <div className="flex flex-col items-center text-center md:items-start md:text-left">
+            <Image
+                src={logo}
+                alt="Ivan Lo Logo"
+                priority
+                className="h-auto w-[150px] md:w-[180px]"
+            />
 
-    useEffect(() => {
-        const showAt = 160;
-        const hideAt = 260;
-        let ticking = false;
+            <p className="mt-1 text-sm text-gray-500">
+              Front-End Developer & Aspiring Full-Stack Developer
+            </p>
+          </div>
 
-        const update = () => {
-            const scrollY = window.scrollY;
-            const viewportH = window.innerHeight;
-            const docH = document.documentElement.scrollHeight;
+          {/* Social Links */}
+          <nav className="flex items-center gap-6">
+            {contactLinks.map((link) => (
+              <Link
+                key={link.label}
+                href={link.href}
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label={link.label}
+                className="
+                  flex h-10 w-10 items-center justify-center
+                  rounded-full bg-white text-[#14213D]
+                  shadow-sm
+                  transition-all duration-300
+                  hover:-translate-y-1
+                  hover:bg-[#FCA311]
+                  hover:text-white
+                "
+              >
+                {link.icon}
+              </Link>
+            ))}
+          </nav>
+        </div>
 
-            const distanceFromBottom = docH - (scrollY + viewportH);
+        {/* Divider */}
+        <div className="my-7 h-px bg-[#14213D]/10" />
 
-            setShow((prev) => {
-                if (!prev) return distanceFromBottom <= showAt;
-                return distanceFromBottom <= hideAt;
-            });
-
-            ticking = false;
-        };
-
-        const onScroll = () => {
-            if (ticking) return;
-            ticking = true;
-            requestAnimationFrame(update);
-        };
-
-        update();
-        window.addEventListener("scroll", onScroll, { passive: true });
-        window.addEventListener("resize", onScroll);
-
-        return () => {
-            window.removeEventListener("scroll", onScroll);
-            window.removeEventListener("resize", onScroll);
-        };
-    }, []);
-
-    return (
-       <footer
-        className={cn(
-            "fixed bottom-0 inset-x-0 z-50 transition-all duration-200",
-            show ? "translate-y-0" : "translate-y-28 pointer-events-none"
-        )}
-    >
-            <div className="flex items-center justify-center w-full px-8 md:px-15 py-2 md:py-5 bg-white/90 backdrop-blur shadow-[0_-10px_30px_-10px_rgba(0,0,0,0.12)]">
-                <nav className="flex space-x-8 lg:space-x-20">
-                    {contactLinks.map((l) => (
-                        <Link
-                            key={l.label}
-                            href={l.href}
-                            target="_blank"
-                            className="
-                                flex flex-col lg:flex-row items-center gap-2
-                                text-[#14213D]
-                                hover:text-[#FCA311]
-                                transition-colors
-                            "
-                        >
-                            {l.icon}
-                            <span className="lg:ml-2">{l.label}</span>
-                        </Link>
-                    ))}
-                </nav>
-            </div>
-        </footer>
-    )
+        {/* Bottom */}
+        <div className="flex items-center justify-center text-center text-xs text-gray-400 sm:flex-row">
+          <p>
+            © {new Date().getFullYear()} Ivan James Lo. All rights reserved.
+          </p>
+        </div>
+      </div>
+    </footer>
+  );
 }

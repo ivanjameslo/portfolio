@@ -6,6 +6,7 @@ import ProjectML from "@/lib/Project-ML.json";
 import ProjectCS from "@/lib/Project-CS.json";
 import ProjectDev from "@/lib/Project-Dev.json";
 import { useEffect, useState, useRef } from "react";
+import CTASection from "@/components/sections/CTASection";
 
 const sections = [
   { id: "development-projects", label: "Development" },
@@ -54,226 +55,205 @@ export default function Projects() {
 
     // Section visibility scroll listener
     useEffect(() => {
-        const observer = new IntersectionObserver(
-            (entries) => {
-            entries.forEach((entry) => {
-                if (entry.isIntersecting) {
-                if (entry.target === devRef.current) {
-                    setShowSections((prev) => ({ ...prev, dev: true }));
-                    observer.unobserve(entry.target);
-                }
+        const handleScroll = () => {
+            const cta = document.getElementById("cta");
 
-                if (entry.target === cyberRef.current) {
-                    setShowSections((prev) => ({ ...prev, cyber: true }));
-                    observer.unobserve(entry.target);
-                }
+            // Disable all project navigation dots once CTA is reached
+            if (cta) {
+            const ctaRect = cta.getBoundingClientRect();
 
-                if (entry.target === mlRef.current) {
-                    setShowSections((prev) => ({ ...prev, ml: true }));
-                    observer.unobserve(entry.target);
-                }
-                }
-            });
-            },
-            {
-            threshold: 0.2,
+            if (ctaRect.top <= window.innerHeight * 0.7) {
+                setActive("");
+                return;
             }
-        );
+            }
 
-        if (devRef.current) observer.observe(devRef.current);
-        if (cyberRef.current) observer.observe(cyberRef.current);
-        if (mlRef.current) observer.observe(mlRef.current);
+            let current = "";
 
-        return () => observer.disconnect();
+            sections.forEach((section) => {
+            const el = document.getElementById(section.id);
+
+            if (el) {
+                const rect = el.getBoundingClientRect();
+
+                if (rect.top <= 180) {
+                current = section.id;
+                }
+            }
+            });
+
+            setActive(current);
+        };
+
+        window.addEventListener("scroll", handleScroll, { passive: true });
+        handleScroll();
+
+        return () => window.removeEventListener("scroll", handleScroll);
     }, []);
   
     return (
-        <div className="mt-15 relative flex flex-col items-center justify-center px-3 py-10 lg:px-20 lg:py-20 w-full">
-            {/* Left Dot Navigation */}
-            <nav className="hidden lg:flex fixed left-6 top-1/2 -translate-y-1/2 z-50 flex-col gap-4">
-                {sections.map((section) => {
-                    const isActive = active === section.id;
+        <div>
+            <div className="mt-15 relative flex flex-col items-center justify-center px-3 pt-10 lg:px-20 lg:py-20 w-full">
+                {/* Left Dot Navigation */}
+                <nav className="hidden lg:flex fixed left-6 top-1/2 -translate-y-1/2 z-50 flex-col gap-4">
+                    {sections.map((section) => {
+                        const isActive = active === section.id;
 
-                    return (
-                        <a
-                        key={section.id}
-                        href={`#${section.id}`}
-                        className="relative flex items-center group/item"
-                        >
-                        <div
-                            className={`h-3 w-3 rounded-full transition ${
-                            isActive
-                                ? "bg-[#FCA311] scale-125"
-                                : "bg-gray-400 group-hover/item:bg-[#FCA311]"
-                            }`}
-                        />
+                        return (
+                            <a
+                            key={section.id}
+                            href={`#${section.id}`}
+                            className="relative flex items-center group/item"
+                            >
+                            <div
+                                className={`h-3 w-3 rounded-full transition ${
+                                isActive
+                                    ? "bg-[#FCA311] scale-125"
+                                    : "bg-gray-400 group-hover/item:bg-[#FCA311]"
+                                }`}
+                            />
 
-                        <span
-                            className={`absolute left-6 whitespace-nowrap rounded bg-white px-2 py-1 text-xs shadow transition-all ${
-                            isActive
-                                ? "opacity-100 translate-x-0 text-[#FCA311]"
-                                : "opacity-0 -translate-x-2 text-gray-500 group-hover/item:opacity-100 group-hover/item:translate-x-0"
-                            }`}
-                        >
-                            {section.label}
-                        </span>
-                        </a>
-                    );
-                })}
-            </nav>
-            
-            <div className="text-center">
-                <h1 className="animate-fade-up text-5xl md:text-7xl font-bold text-[#14213D]"><span className="text-[#FCA311]">My</span> Projects</h1>
-                <p className="animate-fade-up-delay text-sm md:text-xl text-gray-500 mt-3 lg:mt-5 flex-wrap px-0 lg:px-70">
-                    Showcasing skills and experience through a variety of web development, security, and machine learning projects.
-                </p>
+                            <span
+                                className={`absolute left-6 whitespace-nowrap rounded bg-white px-2 py-1 text-xs shadow transition-all ${
+                                isActive
+                                    ? "opacity-100 translate-x-0 text-[#FCA311]"
+                                    : "opacity-0 -translate-x-2 text-gray-500 group-hover/item:opacity-100 group-hover/item:translate-x-0"
+                                }`}
+                            >
+                                {section.label}
+                            </span>
+                            </a>
+                        );
+                    })}
+                </nav>
+                
+                <div className="text-center">
+                    <h1 className="animate-fade-up text-5xl md:text-7xl font-bold text-[#14213D]"><span className="text-[#FCA311]">My</span> Projects</h1>
+                    <p className="animate-fade-up-delay text-sm md:text-xl text-gray-500 mt-3 lg:mt-5 flex-wrap px-0 lg:px-70">
+                        Showcasing skills and experience through a variety of web development, security, and machine learning projects.
+                    </p>
+                </div>
+
+                {/* Development Projects */}
+                <section
+                    ref={devRef}
+                    id="development-projects"
+                    className="scroll-mt-25 mt-32 w-full px-3 lg:px-40"
+                >
+                    <div className="mb-8">
+                        <div className="flex items-center gap-3">
+                            <Code className="text-[#FCA311] mr-3 h-7 w-7"/>
+                            <h2 className="text-2xl lg:text-3xl font-bold text-[#14213D]">
+                                Development Projects
+                            </h2>
+                        </div>
+
+                        <p className="mt-3 text-gray-500">
+                            Development projects focused on creating web applications and implementing modern development practices.
+                        </p>
+                    </div>
+
+                    <div className="space-y-10">
+                        {ProjectDev.map((project) => (
+                            <RowCard
+                                key={project.title}
+                                title={project.title}
+                                subtitle={project.subtitle}
+                                description={project.description}
+                                image={
+                                project.image && project.image.length > 0
+                                    ? project.image
+                                    : "/sample.jpeg"
+                                }
+                                link={project.link}
+                                techStack={project.techStack}
+                                projectPage={project.featured}
+                            />
+                        ))}
+                    </div>
+                </section>
+
+                {/* Cybersecurity Projects */}
+                <section
+                    ref={cyberRef}
+                    id="cybersecurity-projects"
+                    className="scroll-mt-25 mt-32 w-full px-3 lg:px-40"
+                >
+                    <div className="mb-8">
+                        <div className="flex items-center gap-3">
+                            <ShieldCheck className="text-[#FCA311] mr-3 h-7 w-7"/>
+                            <h2 className="text-2xl lg:text-3xl font-bold text-[#14213D]">
+                                Cybersecurity Projects
+                            </h2>
+                        </div>
+
+                        <p className="mt-3 text-gray-500">
+                            Cybersecurity projects focused on securing systems, analyzing network activity, and applying practical security concepts to real-world scenarios.
+                        </p>
+                    </div>
+
+                    <div className="space-y-10">
+                        {ProjectCS.map((project) => (
+                            <RowCard
+                                key={project.title}
+                                title={project.title}
+                                subtitle={project.subtitle}
+                                description={project.description}
+                                image={
+                                project.image && project.image.length > 0
+                                    ? project.image
+                                    : "/sample.jpeg"
+                                }
+                                gallery={project.gallery}
+                                techStack={project.techStack}
+                                projectPage={project.featured}
+                            />
+                        ))}
+                    </div>
+                </section>
+
+                {/* Machine Learning Projects */}
+                <section
+                    ref={mlRef}
+                    id="machine-learning-projects"
+                    className="scroll-mt-25 mt-32 w-full px-3 lg:px-40 mb-15"
+                >
+                    <div className="mb-8">
+                        <div className="flex items-center gap-3">
+                            <Brain className="text-[#FCA311] mr-3 h-7 w-7"/>
+                            <h2 className="text-2xl lg:text-3xl font-bold text-[#14213D]">
+                                Machine Learning Projects
+                            </h2>
+                        </div>
+
+                        <p className="mt-3 text-gray-500">
+                            Data-driven projects focused on forecasting, predictive modeling, and
+                            transforming machine learning outputs into accessible user interfaces.
+                        </p>
+                    </div>
+
+                    <div className="space-y-10">
+                        {ProjectML.map((project) => (
+                            <RowCard
+                                key={project.title}
+                                title={project.title}
+                                subtitle={project.subtitle}
+                                description={project.description}
+                                image={
+                                project.image && project.image.length > 0
+                                    ? project.image
+                                    : "/sample.jpeg"
+                                }
+                                link={project.link}
+                                techStack={project.techStack}
+                                projectPage={project.featured}
+                            />
+                        ))}
+                    </div>
+                </section>
             </div>
 
-            {/* Development Projects */}
-            <section
-                ref={devRef}
-                id="development-projects"
-                className="animate-fade-right scroll-mt-25 mt-32 w-full px-3 lg:px-40"
-            >
-                <div className="mb-8">
-                    <div className="flex items-center gap-3">
-                        <Code className="text-[#FCA311] mr-3 h-7 w-7"/>
-                        <h2 className="text-2xl lg:text-3xl font-bold text-[#14213D]">
-                            Development Projects
-                        </h2>
-                    </div>
-
-                    <p className="mt-3 text-gray-500">
-                        Development projects focused on creating web applications and implementing modern development practices.
-                    </p>
-                </div>
-
-                <div className="space-y-10">
-                    {ProjectDev.map((project, index) => (
-                    <div
-                        key={project.title}
-                        className={showSections.dev ? "animate-fade-right" : "opacity-0"}
-                        style={{
-                        animationDelay: `${0.15 + index * 0.5}s`,
-                        opacity: 0
-                        }}
-                    >
-                        <RowCard
-                        title={project.title}
-                        subtitle={project.subtitle}
-                        description={project.description}
-                        image={
-                            project.image && project.image.length > 0
-                            ? project.image
-                            : "/sample.jpeg"
-                        }
-                        link={project.link}
-                        techStack={project.techStack}
-                        projectPage={project.featured}
-                        />
-                    </div>
-                    ))}
-                </div>
-            </section>
-
-            {/* Cybersecurity Projects */}
-            <section
-                ref={cyberRef}
-                id="cybersecurity-projects"
-                className={`scroll-mt-25 mt-32 w-full px-3 lg:px-40 ${
-                    showSections.cyber ? "animate-fade-right" : "before-fade-right"
-                }`}
-            >
-                <div className="mb-8">
-                    <div className="flex items-center gap-3">
-                        <ShieldCheck className="text-[#FCA311] mr-3 h-7 w-7"/>
-                        <h2 className="text-2xl lg:text-3xl font-bold text-[#14213D]">
-                            Cybersecurity Projects
-                        </h2>
-                    </div>
-
-                    <p className="mt-3 text-gray-500">
-                        Cybersecurity projects focused on securing systems, analyzing network activity, and applying practical security concepts to real-world scenarios.
-                    </p>
-                </div>
-
-                <div className="space-y-10">
-                    {ProjectCS.map((project, index) => (
-                    <div
-                        key={project.title}
-                        className={showSections.cyber ? "animate-fade-right" : "opacity-0"}
-                        style={{
-                        animationDelay: `${0.15 + index * 0.5}s`,
-                        opacity: 0
-                        }}
-                    >
-                        <RowCard
-                        title={project.title}
-                        subtitle={project.subtitle}
-                        description={project.description}
-                        image={
-                            project.image && project.image.length > 0
-                            ? project.image
-                            : "/sample.jpeg"
-                        }
-                        gallery={project.gallery}
-                        techStack={project.techStack}
-                        projectPage={project.featured}
-                        />
-                    </div>
-                    ))}
-                </div>
-            </section>
-
-            {/* Machine Learning Projects */}
-            <section
-                ref={mlRef}
-                id="machine-learning-projects"
-                className={`scroll-mt-25 mt-32 w-full px-3 lg:px-40 mb-15 ${
-                    showSections.ml ? "animate-fade-right" : "before-fade-right"
-                }`}
-            >
-                <div className="mb-8">
-                    <div className="flex items-center gap-3">
-                        <Brain className="text-[#FCA311] mr-3 h-7 w-7"/>
-                        <h2 className="text-2xl lg:text-3xl font-bold text-[#14213D]">
-                            Machine Learning Projects
-                        </h2>
-                    </div>
-
-                    <p className="mt-3 text-gray-500">
-                        Data-driven projects focused on forecasting, predictive modeling, and
-                        transforming machine learning outputs into accessible user interfaces.
-                    </p>
-                </div>
-
-                <div className="space-y-10">
-                    {ProjectML.map((project, index) => (
-                    <div
-                        key={project.title}
-                        className={showSections.ml ? "animate-fade-right" : "opacity-0"}
-                        style={{
-                        animationDelay: `${0.15 + index * 0.5}s`,
-                        opacity: 0
-                        }}
-                    >
-                        <RowCard
-                        title={project.title}
-                        subtitle={project.subtitle}
-                        description={project.description}
-                        image={
-                            project.image && project.image.length > 0
-                            ? project.image
-                            : "/sample.jpeg"
-                        }
-                        link={project.link}
-                        techStack={project.techStack}
-                        projectPage={project.featured}
-                        />
-                    </div>
-                    ))}
-                </div>
-            </section>
+            <CTASection />
         </div>
     );
 }

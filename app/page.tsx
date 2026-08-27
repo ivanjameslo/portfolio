@@ -1,7 +1,6 @@
-import Image from "next/image";
 import HomePage from "../components/pages/Home";
-import Navbar from "../components/usable-components/Navbar";
 import Highlights from "../components/pages/Highlights";
+import CTASection from "@/components/sections/CTASection";
 
 export default function Home() {
   return (
@@ -11,6 +10,9 @@ export default function Home() {
       </div>
       <div>
         <Highlights />
+      </div>
+      <div>
+        <CTASection />
       </div>
     </div>
   );
