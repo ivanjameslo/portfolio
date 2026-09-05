@@ -100,7 +100,7 @@ export default function About() {
 
   return (
     <div>
-      <div className="mt-15 flex flex-col items-center justify-center px-3 pt-10 pb-0 lg:px-20 lg:pt-20 lg:pb-0 w-full">
+      <div className="mt-25 flex flex-col items-center justify-center px-3 pt-10 pb-0 lg:mt-15 lg:px-20 lg:pt-20 lg:pb-0 w-full">
 
           {/* Navigation */}
           <nav className="hidden lg:flex fixed left-6 top-1/2 -translate-y-1/2 z-50 flex-col gap-4">
@@ -185,7 +185,7 @@ export default function About() {
           </div>
 
           {/* Image and Details Section */}
-          <div className="mt-30 grid grid-cols-1 lg:grid-cols-5 gap-8 px-3 lg:px-40">
+          <div className="mt-10 md:mt-20 grid grid-cols-1 lg:grid-cols-5 gap-8 px-3 lg:px-40">
               {/* Image */}
               <div className="relative w-full lg:col-span-2 aspect-[3/4] rounded-xl overflow-hidden shadow-[0_10px_30px_rgba(0,0,0,0.12)]">
                 <Image 

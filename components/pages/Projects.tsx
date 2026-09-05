@@ -93,7 +93,7 @@ export default function Projects() {
   
     return (
         <div>
-            <div className="mt-15 relative flex flex-col items-center justify-center px-3 pt-10 lg:px-20 lg:py-20 w-full">
+            <div className="mt-25 relative flex flex-col items-center justify-center px-3 pt-10 lg:mt-15 lg:px-20 lg:py-20 w-full">
                 {/* Left Dot Navigation */}
                 <nav className="hidden lg:flex fixed left-6 top-1/2 -translate-y-1/2 z-50 flex-col gap-4">
                     {sections.map((section) => {
@@ -138,7 +138,7 @@ export default function Projects() {
                 <section
                     ref={devRef}
                     id="development-projects"
-                    className="scroll-mt-25 mt-32 w-full px-3 lg:px-40"
+                    className="scroll-mt-25 mt-10 md:mt-20 w-full px-3 lg:px-40"
                 >
                     <div className="mb-8">
                         <div className="flex items-center gap-3">
@@ -177,7 +177,7 @@ export default function Projects() {
                 <section
                     ref={cyberRef}
                     id="cybersecurity-projects"
-                    className="scroll-mt-25 mt-32 w-full px-3 lg:px-40"
+                    className="scroll-mt-25 mt-20 w-full px-3 lg:px-40"
                 >
                     <div className="mb-8">
                         <div className="flex items-center gap-3">
@@ -216,7 +216,7 @@ export default function Projects() {
                 <section
                     ref={mlRef}
                     id="machine-learning-projects"
-                    className="scroll-mt-25 mt-32 w-full px-3 lg:px-40 mb-15"
+                    className="scroll-mt-25 mt-20 w-full px-3 lg:px-40 mb-15"
                 >
                     <div className="mb-8">
                         <div className="flex items-center gap-3">

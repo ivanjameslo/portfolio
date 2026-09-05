@@ -207,11 +207,11 @@ export default function Home() {
 
       {/* Main content */}
       <div className="select-none relative z-10 text-center">
-        <h1 className="animate-fade-up text-4xl font-bold text-[#14213D] md:text-6xl lg:text-8xl">
+        <h1 className="animate-fade-up text-5xl font-bold text-[#14213D] md:text-6xl lg:text-8xl">
           Hi, I’m <span className="text-[#FCA311]">Ivan</span>!
         </h1>
 
-        <p className="animate-fade-up-delay mt-3 text-sm leading-snug text-gray-500 md:text-lg lg:text-2xl">
+        <p className="animate-fade-up-delay mt-3 text-base leading-snug text-gray-500 md:text-lg lg:text-2xl">
           A Frontend Developer and
           <br />
           an aspiring Full Stack Developer

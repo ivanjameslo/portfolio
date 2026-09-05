@@ -154,7 +154,7 @@ export default function Navbar() {
           <div
             id="mobile-menu"
             className={[
-              "absolute right-0 mt-4 w-56 overflow-hidden rounded-3xl border border-white/40 bg-white/80 shadow-xl shadow-black/10 ring-1 ring-black/5 backdrop-blur-xl transition-all duration-200",
+              "absolute right-0 mt-4 w-56 overflow-hidden rounded-3xl border border-gray-200 bg-white shadow-xl shadow-black/10 ring-1 ring-black/5 transition-all duration-200",
               open
                 ? "translate-y-0 scale-100 opacity-100"
                 : "pointer-events-none -translate-y-2 scale-95 opacity-0",
