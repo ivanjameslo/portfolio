@@ -17,6 +17,8 @@ const PROVIDER_COLORS: Record<string, string> = {
   "Amazon Web Services (AWS)": "bg-[#FCA311]",
   AWS: "bg-[#FCA311]",
   "Tech Advise": "bg-[#14213D]",
+  "Flyrank AI": "bg-[#FCA311]",
+  "Anthropic": "bg-[#FCA311]"
 };
 
 export default function CertificationCard({

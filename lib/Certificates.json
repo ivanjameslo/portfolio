@@ -58,5 +58,23 @@
     "name": "CISCO",
     "date": "2026",
     "link": "https://www.credly.com/badges/9e1b63db-f0d1-4722-a4e3-4588da768239"
+  },
+  {
+    "cert_title": "Flyrank Internship - AI Fluency",
+    "name": "Flyrank AI",
+    "date": "2026",
+    "link": "https://internship.flyrank.ai/verify/FR-D11-2FA84-B70B5?first_name=Ivan"
+  },
+  {
+    "cert_title": "AI Fluency: Framework & Foundations",
+    "name": "Anthropic",
+    "date": "2026",
+    "link": "https://verify.skilljar.com/c/452g4uvi5no9"
+  },
+  {
+    "cert_title": "Claude 101",
+    "name": "Anthropic",
+    "date": "2026",
+    "link": "https://verify.skilljar.com/c/5cr9j9u4s5vt"
   }
 ]
