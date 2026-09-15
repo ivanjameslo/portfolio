@@ -3,9 +3,8 @@
     "category": "development",
     "featured": true,
     "title": "Help Desk Management System",
-    "subtitle": "Full-stack project | Deployed",
-    "description": "A full-stack help desk platform designed to manage support requests through role-based workflows for requesters, support agents, and administrators. The system supports ticket creation, assignment, priority and status management, conversations, activity tracking, secure file attachments, user and category administration, and one-click public demo access. It also includes restricted demo permissions and an administrator-controlled reset feature to maintain clean sample data for portfolio visitors.",
-    "image": "/project-pics/HelpDesk.png",
+    "subtitle": "Full-stack AI-assisted project | Deployed",
+    "description": "A full-stack help desk platform for requesters, support agents, and administrators, featuring role-based ticket workflows, secure attachments, internal notes, activity tracking, and user management. It also includes a searchable Knowledge Base and an AI Help Desk Assistant that can summarize tickets, use relevant support articles for troubleshooting, and draft requester-facing replies. One-click demo accounts and an administrator-controlled reset workflow make the system easy to explore.",    "image": "/project-pics/HelpDesk.png",
     "link": "https://helpdesk-ivanlo.vercel.app/",
     "techStack": [
       {
@@ -31,6 +30,9 @@
       },
       {
         "label": "Vercel Blob"
+      },
+      {
+        "label": "OpenRouter"
       }
     ]
   },

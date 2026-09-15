@@ -1,7 +1,7 @@
 [
   {
     "title": "Help Desk Management System",
-    "description": "A full-stack help desk platform that manages support requests through role-based workflows for requesters, support agents, and administrators. The system supports ticket creation, assignment, priority and status management, conversations, activity tracking, and secure file attachments.",
+    "description": "A full-stack help desk platform that manages support requests through role-based workflows for requesters, agents, and administrators. It supports ticket creation, assignment, priority and status management, internal notes, activity tracking, secure attachments, a searchable Knowledge Base, and an AI assistant for ticket summaries, troubleshooting, and reply drafting.",
     "image": "/project-pics/HelpDesk.png",
     "link": "https://helpdesk-ivanlo.vercel.app/",
     "techStack": [
