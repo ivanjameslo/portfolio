@@ -12,7 +12,8 @@
       "Auth.js",
       "Prisma ORM",
       "PostgreSQL",
-      "Vercel Blob"
+      "Vercel Blob",
+      "OpenRouter"
     ]
   },
   {
