@@ -93,7 +93,7 @@ export default function Projects() {
   
     return (
         <div>
-            <div className="mt-25 relative flex flex-col items-center justify-center px-3 pt-10 lg:mt-15 lg:px-20 lg:py-20 w-full">
+            <div className="mt-25 relative flex flex-col items-center justify-center px-3 pt-10 lg:mt-15 lg:px-15 lg:py-20 w-full">
                 {/* Left Dot Navigation */}
                 <nav className="hidden lg:flex fixed left-6 top-1/2 -translate-y-1/2 z-50 flex-col gap-4">
                     {sections.map((section) => {

@@ -100,7 +100,7 @@ export default function About() {
 
   return (
     <div>
-      <div className="mt-25 flex flex-col items-center justify-center px-3 pt-10 pb-0 lg:mt-15 lg:px-20 lg:pt-20 lg:pb-0 w-full">
+      <div className="mt-25 flex flex-col items-center justify-center px-3 pt-10 pb-0 lg:mt-15 lg:px-15 lg:pt-20 lg:pb-0 w-full">
 
           {/* Navigation */}
           <nav className="hidden lg:flex fixed left-6 top-1/2 -translate-y-1/2 z-50 flex-col gap-4">
